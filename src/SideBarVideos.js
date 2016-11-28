@@ -4,16 +4,16 @@ import { changeCenterVideo } from './actions'
 import { bindActionCreators } from'redux';
 
 
-function SideBarVideos(props){
+class SideBarVideos extends Component {
 
-  function handleOnClick(event){
+  handleOnClick(event){
     event.preventDefault()
     this.props.changeCenterVideo(event.currentTarget.dataset.id)
   }
 
-
-    let sideBarThumbnails = props.sideBarVideos.map((sideBarVideo) => {
-      return <li><a data-id={sideBarVideo.id} onClick={handleOnClick.bind(props)}>
+  render(){
+    let sideBarThumbnails = this.props.sideBarVideos.map((sideBarVideo) => {
+      return <li className="list-group-item" ><a data-id={sideBarVideo.id} onClick={this.handleOnClick.bind(this)}>
         <img src={sideBarVideo.thumbnail} />
         <br />
         {sideBarVideo.title}
@@ -24,6 +24,7 @@ function SideBarVideos(props){
         {sideBarThumbnails}
       </div>
     )
+  }
 }
 
 function mapStateToProps(state){

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-function CenterVideo(props){
-
-    let src=`https://www.youtube.com/embed/${props.centerVideo.id}`
+class CenterVideo extends Component {
+  render(){
+    let src=`https://www.youtube.com/embed/${this.props.centerVideo.id}`
     return(
       <div>
         <iframe width="420" height="315"
@@ -12,7 +12,7 @@ function CenterVideo(props){
         </iframe>
       </div>
     )
-
+  }
 }
 
 function mapStateToProps(state){

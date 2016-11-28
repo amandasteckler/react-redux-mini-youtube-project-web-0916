@@ -11,6 +11,7 @@ class App extends Component {
   handleOnSubmit(event){
     event.preventDefault()
     this.props.fetchVideos(event.currentTarget.children[0].value)
+
   }
 
   render() {
@@ -18,12 +19,12 @@ class App extends Component {
       <div className="App">
         Enter keyword here:
         <form onSubmit={this.handleOnSubmit.bind(this)}>
-          <input type='text' />
+          <input className='search-bar' type='text' />
           <button type='submit'>Search</button>
         </form>
 
-        <CenterVideo />
-        <SideBarVideos />
+        <div className='centervidz'><CenterVideo /></div>
+        <div className='sidebarvidz'><SideBarVideos /></div>
       </div>
     );
   }

@@ -3,9 +3,12 @@ import { combineReducers } from 'redux'
 function videos(state = [], action){
   switch (action.type) {
     case "FETCH_VIDEOS":
-      return action.payload.data.items.map(function(video){
+      let attributez = action.payload.data.items.map(function(video){
         return {id: video.id.videoId, title: video.snippet.title, thumbnail: video.snippet.thumbnails.default.url}
       })
+      Object.assign(attributez, {nextPage: action.payload.data.nextPageToken})
+      debugger;
+      return attributez
     default:
       return state
   }

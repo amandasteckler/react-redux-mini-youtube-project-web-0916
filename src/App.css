@@ -25,3 +25,11 @@
 .list-group-item:hover {
   background-color: #eee;
 }
+
+.centervidz {
+  float: left
+}
+
+.sidebarvidz {
+  float: right
+}
